@@ -10,11 +10,11 @@ Data::Selector - data selection dsl parser and applicator
 
 =head1 VERSION
 
-1.00
+1.01
 
 =cut
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 =head1 SYNOPSIS
 
