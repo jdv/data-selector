@@ -115,87 +115,87 @@ contain lower case alpha or underscore characters (a-z,_).
 
 Lets say we have a date tree like so:
 
-$data_tree = {
-    count => 2,
-    items => [
-        {
-            body => 'b1',
-            links => [ 'l1', 'l2', 'l3', ],
-            rel_1_url => 'foo',
-            rel_1_id => 12,
-            rel_2_url => 'bar',
-            rel_2_id => 34,
-        },
-        {
-            body => 'b2',
-            links => [ 'l4', 'l5', ],
-            rel_1_url => 'up',
-            rel_1_id => 56,
-            rel_2_url => 'down',
-            rel_2_id => 78,
-        },
-    ],
-    total => 42,
-}
+ $data_tree = {
+     count => 2,
+     items => [
+         {
+             body => 'b1',
+             links => [ 'l1', 'l2', 'l3', ],
+             rel_1_url => 'foo',
+             rel_1_id => 12,
+             rel_2_url => 'bar',
+             rel_2_id => 34,
+         },
+         {
+             body => 'b2',
+             links => [ 'l4', 'l5', ],
+             rel_1_url => 'up',
+             rel_1_id => 56,
+             rel_2_url => 'down',
+             rel_2_id => 78,
+         },
+     ],
+     total => 42,
+ }
 
 =over
 
 =item total only
 
-$selector_string = "total";
+ $selector_string = "total";
 
-$data_tree = {
-    total => 42,
-}
+ $data_tree = {
+     total => 42,
+ }
 
 =item only rel urls in items
 
-$selector_string = "items.*.rel_*_url"
+ $selector_string = "items.*.rel_*_url"
 
-$data_tree = {
-    items => [
-        {
-            rel_1_url => 'foo',
-            rel_2_url => 'bar',
-        },
-        {
-            rel_1_url => 'up',
-            rel_2_url => 'down',
-        },
-    ],
-}
+ $data_tree = {
+     items => [
+         {
+             rel_1_url => 'foo',
+             rel_2_url => 'bar',
+         },
+         {
+             rel_1_url => 'up',
+             rel_2_url => 'down',
+         },
+     ],
+ }
 
 =item count and last item with no body
 
-$selector_string = "count,items.+-1.-body"
+ $selector_string = "count,items.+-1.-body"
 
-$data_tree = {
-    count => 2,
-    items => [
-        {
-            links => [ 'l4', 'l5', ],
-            rel_1_url => 'up',
-            rel_1_id => 56,
-            rel_2_url => 'down',
-            rel_2_id => 78,
-        },
-    ],
-}
+ $data_tree = {
+     count => 2,
+     items => [
+         {
+             links => [ 'l4', 'l5', ],
+             rel_1_url => 'up',
+             rel_1_id => 56,
+             rel_2_url => 'down',
+             rel_2_id => 78,
+         },
+     ],
+ }
 
 =item last 2 links
 
-selector_string = "items.*.links.+-2..-1"
+ $selector_string = "items.*.links.+-2..-1"
 
-$data_tree = {
-    items => [
-        {
-            links => [ 'l2', 'l3', ],
-        },
-        {
-            links => [ 'l4', 'l5', ],
-        },
-    ],
-}
+ $data_tree = {
+     items => [
+         {
+             links => [ 'l2', 'l3', ],
+         },
+         {
+             links => [ 'l4', 'l5', ],
+         },
+     ],
+ }
 
 =back
 
