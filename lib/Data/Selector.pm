@@ -211,13 +211,8 @@ Creates a selector tree from a selector string.  A map of named selectors can
 also be provided which will be interpolated into the selector string before it
 is parsed.
 
-Required Args:
-
-    selector_string
-
-Optional Args:
-
-    named_selectors
+Required Args:  selector_string
+Optional Args:  named_selectors
 
 =cut
 
@@ -370,10 +365,7 @@ sub parse_string {
 Include or exclude parts of a data tree as specified by a selector tree.  Note
 that arrays that have elements excluded, or removed, will be trimmed.
 
-Required Args:
-
-    selector_tree
-    data_tree
+Required Args:  selector_tree, data_tree
 
 =back
 
